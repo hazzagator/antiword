@@ -18,13 +18,13 @@ LDLIBS	= -lX11
 
 # NOTE: As of 2004/11/06, cygwin locale is broken, cf. http://www.cygwin.com/ml/cygwin/2004-09/msg01705.html
 # However, the following fix seems to work perfectly:
-CFLAGS	= -Wall -pedantic $(OPT) -D$(DB) -DX_LOCALE -I/usr/X11R6/include
-LDFLAGS	= -L/usr/X11R6/lib
+CFLAGS	= -Wall -pedantic $(OPT) -D$(DB) -DX_LOCALE -I/usr/i686-pc-cygwin/sys-root/usr/include
+LDFLAGS	= -L/usr/i686-pc-cygwin/sys-root/usr/lib
 
 OBJS	=\
 	main_u.o asc85enc.o blocklist.o chartrans.o datalist.o depot.o\
 	dib2eps.o doclist.o fail.o finddata.o findtext.o fmt_text.o fontlist.o\
-	fonts.o fonts_u.o hdrftrlist.o imgexam.o imgtrans.o jpeg2eps.o\
+	fonts.o hdrftrlist.o imgexam.o imgtrans.o jpeg2eps.o\
 	listlist.o misc.o notes.o options.o out2window.o output.o pdf.o\
 	pictlist.o png2eps.o postscript.o prop0.o prop2.o prop6.o prop8.o\
 	properties.o propmod.o rowlist.o sectlist.o stylelist.o stylesheet.o\
@@ -89,7 +89,6 @@ kantiword:	Unix-only/KDE3-only/kantiword.sh
 main_u.o:	version.h
 postscript.o:	version.h
 pdf.o:		version.h
-fonts_u.o:	fontinfo.h
 
 fontinfo.h:	Unix-only/fontinfo.h
 	cp -rp $? $@
